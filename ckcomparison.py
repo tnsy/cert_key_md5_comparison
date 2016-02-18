@@ -8,8 +8,12 @@ cert_dict = {}
 key_dict = {}
 intersection = []
 
-print '\n', ' CERTIFICATES FOUND '.center(100, '='), '\n\n', list_of_certificates
-print '\n', ' KEYS FOUND '.center(100, '='), '\n\n', list_of_keys
+print '\n', ' CERTIFICATES FOUND '.center(100, '='), '\n\n'
+for c in list_of_certificates:
+    print c
+print '\n', ' KEYS FOUND '.center(100, '='), '\n\n'
+for k in list_of_keys:
+    print k
 
 for certificate in list_of_certificates:
     a = os.popen('openssl x509 -in %s -modulus -noout | openssl md5' % certificate)
@@ -28,5 +32,5 @@ for k in cert_dict.keys():
 print '\n', ' CERTS - KEYS MATCH '.center(100, '=')
 for i in intersection:
     if i in cert_dict:
-        print '\n', 'Cer: ', cert_dict[i].rjust(94), '\nKey: ', key_dict[i].rjust(94)
+        print '\n', 'Cer: ', cert_dict[i].rjust(94), '\nKey: ', key_dict[i].rjust(94), '\n'
         print '-' * 100
