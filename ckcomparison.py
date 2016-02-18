@@ -1,8 +1,8 @@
 import glob
 import os
 
-list_of_certificates = glob.glob("/config/filestore/files_d/Common_d/certificate_d/*")
-list_of_keys = glob.glob("/config/filestore/files_d/Common_d/certificate_key_d/*")
+list_of_certificates = glob.glob("/config/filestore/files_d/*/certificate_d/*")
+list_of_keys = glob.glob("/config/filestore/files_d/*/certificate_key_d/*")
 
 cert_dict = {}
 key_dict = {}
@@ -23,12 +23,9 @@ for key in list_of_keys:
     key_dict[key_hash] = key
     print 'KEY HASH: %r\n\n' % key_hash
 
-
 for k in cert_dict.keys():
     if key_dict.has_key(k):
         intersection.append(k)
-
-#print 'AFTER ADDING TO INTERSECTION LIST: %r\n\n' % intersection
 
 for i in intersection:
     if i in cert_dict:
