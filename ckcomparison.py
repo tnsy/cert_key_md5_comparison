@@ -10,10 +10,10 @@ failed_certs = []
 
 print '\n', ' CERTIFICATES FOUND '.center(125, '='), '\n'
 for c in list_of_certificates:
-    print c
+    print c.rjust(125)
 print '\n', ' KEYS FOUND '.center(125, '='), '\n'
 for k in list_of_keys:
-    print k
+    print k.rjust(125)
 
 for certificate in list_of_certificates:
     a = os.popen('openssl x509 -in %s -modulus -noout | openssl md5' % certificate)
