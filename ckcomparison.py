@@ -8,10 +8,10 @@ cert_dict = {}
 key_dict = {}
 failed_certs = []
 
-print '\n', ' CERTIFICATES FOUND '.center(100, '='), '\n\n'
+print '\n', ' CERTIFICATES FOUND '.center(125, '='), '\n'
 for c in list_of_certificates:
     print c
-print '\n', ' KEYS FOUND '.center(100, '='), '\n\n'
+print '\n', ' KEYS FOUND '.center(125, '='), '\n'
 for k in list_of_keys:
     print k
 
@@ -25,15 +25,15 @@ for key in list_of_keys:
     key_hash = b.read()
     key_dict[key_hash] = key
 
-print '\n', ' CERTS - KEYS MATCH '.center(100, '=')
+print '\n', ' CERTS - KEYS MATCH '.center(125, '=')
 
 for k in cert_dict.keys():
     if key_dict.has_key(k):
-        print '\n', 'Cer: ', cert_dict[k].rjust(94), '\nKey: ', key_dict[k].rjust(94), '\n'
-        print '-' * 100
+        print '\n', 'Cer: ', cert_dict[k].rjust(119), '\nKey: ', key_dict[k].rjust(119), '\n'
+        print '-' * 125
     else:
         failed_certs.append(cert_dict[k])
 
-print '\n', ' CERTS WITH NO MATCH '.center(100, '='), '\n\n'
+print '\n', ' CERTS WITH NO MATCH '.center(125, '='), '\n'
 for cert in failed_certs:
-    print 'Cer: ', cert.rjust(94)
+    print 'Cer: ', cert.rjust(119)
